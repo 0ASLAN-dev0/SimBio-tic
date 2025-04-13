@@ -33,6 +33,9 @@ python SimBio-tic.py
 
 This will start a Pygame window where the agents will begin moving, searching for food, and interacting based on their neural networks and personalities.
 
+This is how it should look like:
+!SimBio-tic Simulation](image URL)
+
 ## Settings
 
 The following settings can be adjusted in the code to modify the behavior and dynamics of the simulation:
