@@ -1,15 +1,19 @@
-# Agent Simulation with Neural Networks
+# SimBio-tic: Agent Simulation with Evolving Neural Networks
 
-This project simulates a population of agents with different personalities interacting in a 2D environment. The agents have neural networks that guide their behavior, and their interactions and evolution are based on their decisions and environmental factors. The goal is to create a dynamic and evolving simulation where agents can search for food, reproduce, and interact based on their personalities.
+**SimBio-tic** is a simulation where agents with unique personalities interact, adapt, and reproduce in a 2D environment. Each agent is powered by a neural network, making decisions based on its surroundings. Over time, agents evolve through natural selection, mutation, and energy-based survival mechanics.
+
+---
 
 ## Features
 
-- **Agent Personalities**: Agents can have different personalities such as "aggressive", "friendly", "shy", "curious", or "neutral", influencing their behavior and interactions.
-- **Neural Networks**: Each agent has a neural network guiding its decisions based on the environment, including food, other agents, and its own energy.
-- **Evolution**: Agents can reproduce, and their neural networks and personalities evolve through mutation.
-- **Food and Energy Dynamics**: Agents need energy to survive and reproduce. They can gather food, which regenerates over time, but they must manage their energy carefully.
-- **Agent Interaction**: Agents interact with each other, avoiding collisions or engaging in aggressive behavior based on their personality.
-- **Simulation Lifespan**: Each agent has a lifespan, and the population evolves over time as agents live and reproduce.
+- **Diverse Personalities**: Agents have personalities like `aggressive`, `friendly`, `shy`, `curious`, or `neutral`, which influence their behavior.
+- **Neural Network Brain**: Agents use feedforward neural networks to decide how to move, avoid, or approach food and other agents.
+- **Evolution Through Mutation**: Agents reproduce by duplicating and mutating their neural networks and personalities.
+- **Food & Energy Mechanics**: Agents collect food to gain energy, which is needed for survival and reproduction.
+- **Agent Interaction**: Personality affects how agents react to others—some avoid, some engage.
+- **Lifespan & Death**: Agents have a finite lifespan and gradually die out, allowing newer generations to take over.
+
+---
 
 ## Requirements
 
@@ -17,56 +21,94 @@ This project simulates a population of agents with different personalities inter
 - Pygame
 - NumPy
 
-Install the necessary dependencies:
 
-```bash
-pip install pygame numpy
-```
+
+---
 
 ## How to Run
 
-To run the simulation, simply execute the following:
-
 ```bash
+git clone https://github.com/0ASLAN-dev0/SimBio-tic
+cd SimBio-tic
+pip install -r requirements.txt
 python SimBio-tic.py
 ```
 
-This will start a Pygame window where the agents will begin moving, searching for food, and interacting based on their neural networks and personalities.
+A Pygame window will open, and the simulation will begin with agents moving, feeding, reproducing, and evolving.
 
-This is how it should look like:
+---
+
+## Preview
+
 ![SimBio-tic Preview](https://github.com/0ASLAN-dev0/SimBio-tic/raw/main/image_2025-04-13_021442265.png)
 
-## Settings
+---
 
-The following settings can be adjusted in the code to modify the behavior and dynamics of the simulation:
+## Agent Personalities and Colors
 
-- **Grid Size**: The size of the simulation grid (default: 600x600).
-- **Number of Agents**: The initial population of agents (default: 20).
-- **Food Regeneration Rate**: The rate at which food regenerates (default: 1.8).
-- **Energy Dynamics**: Rewards and penalties associated with food collection and energy consumption (default: reward = 5, penalty = -3).
-- **Agent Radius**: The radius of each agent (default: 8).
-- **Perception Radius**: The distance at which agents can perceive food and other agents (default: 75).
-- **Max Population**: The maximum number of agents allowed in the simulation (default: 250).
-- **Lifespan and Reproduction**: Lifespan of agents and reproduction mechanics (default: 12000 - 18000 ticks lifespan, reproduction cost = 90 energy).
+Agents are visually color-coded based on their personality:
 
-## Agent Behavior
+| Personality | Description                         | Color                |
+|-------------|-------------------------------------|----------------------|
+| Aggressive  | Hunts weaker agents                 | Red `(255, 0, 0)`    |
+| Friendly    | Seeks others, avoids conflict       | Green `(0, 255, 0)`  |
+| Shy         | Avoids others, focused on survival  | Orange `(255, 165, 0)` |
+| Curious     | Explores randomly                   | Yellow `(255, 255, 0)` |
+| Neutral     | Balanced behavior                   | White `(255, 255, 255)` |
 
-Agents are controlled by neural networks that are responsible for:
+---
 
-- **Movement**: Based on the combination of neural network output, food behavior, avoidance behavior, and personality-based behavior.
-- **Personality**: Each agent has a personality that affects how they interact with other agents (e.g., "aggressive" agents will attack weaker agents, while "friendly" agents may seek companionship).
-- **Reproduction**: Agents reproduce when their energy is sufficient, creating offspring with mutated neural networks and personalities.
+## Simulation Settings
+
+You can adjust the following parameters in the source code to change how the simulation behaves:
+
+| Setting                  | Default       | Description                                       |
+|--------------------------|---------------|---------------------------------------------------|
+| `GRID_SIZE`              | `600x600`     | Size of the simulation window                     |
+| `NUM_AGENTS`             | `20`          | Initial number of agents                          |
+| `FOOD_REGENERATION_RATE` | `1.8`         | How fast food respawns                            |
+| `ENERGY_REWARD`          | `+5`          | Energy gained per food item                       |
+| `ENERGY_PENALTY`         | `-3`          | Energy lost over time or by movement              |
+| `AGENT_RADIUS`           | `8`           | Visual size of agents                             |
+| `PERCEPTION_RADIUS`      | `75`          | How far agents can detect others and food         |
+| `MAX_POPULATION`         | `250`         | Maximum number of agents                          |
+| `LIFESPAN_RANGE`         | `12000–18000` | Lifespan of each agent in ticks                   |
+| `REPRODUCTION_COST`      | `90`          | Minimum energy needed to reproduce                |
+
+---
+
+## Neural Network Architecture
+
+Each agent’s brain is a simple feedforward neural network:
+
+- **Inputs**: Nearby food, agents, energy levels, etc.
+- **Hidden Layer**: Processes inputs and combines signals.
+- **Outputs**: Movement decisions (direction, speed, behavior).
+
+Neural networks are initialized randomly and mutate during reproduction, allowing complex behaviors to evolve over generations.
+
+---
 
 ## Evolution and Mutation
 
-- Agents mutate both their neural network weights and personalities during reproduction, allowing for evolving behavior over generations.
-- Mutation rates and strengths can be adjusted to control the speed and extent of evolution.
+- During reproduction, each agent's neural network and personality mutate slightly.
+- This leads to adaptive behavior over generations.
+- Mutation rates can be tuned for faster or slower evolutionary changes.
+
+---
 
 ## License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source under the [MIT License](LICENSE).
+
+---
 
 ## Contributing
 
-Feel free to fork the project, make changes, and submit pull requests. If you encounter any bugs or have suggestions for improvement, please open an issue.
+If you have suggestions or want to contribute:
+
+1. Fork the repository
+2. Create a feature branch
+3. Submit a pull request
+4. Or open an issue for feedback or ideas
 
