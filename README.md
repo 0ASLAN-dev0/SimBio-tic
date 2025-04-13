@@ -28,7 +28,7 @@ pip install pygame numpy
 To run the simulation, simply execute the following:
 
 ```bash
-python agent_simulation.py
+python SimBio-tic.py
 ```
 
 This will start a Pygame window where the agents will begin moving, searching for food, and interacting based on their neural networks and personalities.
