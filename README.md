@@ -15,6 +15,19 @@
 
 ---
 
+## Evolution and Mutation 
+
+Unlike traditional AI models that learn through backpropagation, **SimBio-tic** takes a **biologically-inspired approach**. 
+
+- Agents **do not learn** during their lifetime.
+- Instead, their neural networks are **randomly initialized** and **mutate during reproduction**, mimicking **natural selection** and **genetic variation**.
+- Over generations, successful traits (like efficient food-seeking or survival instincts) tend to **persist and evolve**.
+- This leads to **emergent behavior**, where agent strategies improve organically—not through training, but through survival and reproduction.
+
+This makes the simulation **more biological than computational**, with evolution driven by energy, mutation, and environmental interaction—just like in nature.
+
+---
+
 ## Requirements
 
 - Python 3.x
