@@ -8,7 +8,7 @@ NUM_FOOD = 25
 FOOD_REGEN_RATE = 1.8
 
 # Lifespan & Evolution
-CLOCK_TICK = 60 #Simulation speed
+CLOCK_TICK = 60 # Simulation speed
 SMIN_LIFESPAN = 12000
 MAX_LIFESPAN = 18000
 MUTATION_RATE = 0.18
