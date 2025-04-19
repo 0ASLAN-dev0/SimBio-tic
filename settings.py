@@ -1,5 +1,3 @@
-# settings.py
-
 #----------SETTINGS----------
 
 # Grid and Population
