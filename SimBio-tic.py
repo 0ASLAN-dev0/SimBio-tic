@@ -18,6 +18,7 @@ WIDTH, HEIGHT = GRID_SIZE, GRID_SIZE
 NUM_AGENTS = settings.NUM_AGENTS
 NUM_FOOD = settings.NUM_FOOD
 FOOD_REGEN_RATE = settings.FOOD_REGEN_RATE
+CLOCK_TICK = settings.CLOCK_TICK
 MIN_LIFESPAN = settings.MIN_LIFESPAN
 MAX_LIFESPAN = settings.MAX_LIFESPAN
 MUTATION_RATE = settings.MUTATION_RATE
@@ -217,6 +218,7 @@ class Agent:
                 if dist < 1.0:  # Adjust threshold as needed
                     if self.health > target.health:
                         self.health += target.health * 0.5
+                        print(f"Aggressive agent consumed a weaker {target.personality} agent")
                         target.health = -1  # Mark for removal
 
         elif self.personality == "friendly":
@@ -346,6 +348,7 @@ while running:
         # If agent runs out of energy or its lifespan ends, remove it
         if agent.energy <= 0 or pygame.time.get_ticks() - agent.birth_time > agent.lifespan:
             last_dead_agent = agent
+            print(f"{agent.personality} died of starvation")
             agents.remove(agent)
             food.append(Food(agent.x, agent.y))  # Respawn food at agent's position
 
@@ -378,6 +381,6 @@ while running:
 
     # Update display
     pygame.display.flip()
-    clock.tick(30)
+    clock.tick(CLOCK_TICK)
 
 pygame.quit()
