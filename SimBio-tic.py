@@ -2,42 +2,40 @@ import pygame
 import random
 import math
 import numpy as np
+import settings  # Import settings
+
+# Pygame setup
+pygame.init()
+screen = pygame.display.set_mode((settings.WIDTH, settings.HEIGHT))
+clock = pygame.time.Clock()
+font = pygame.font.SysFont(None, 24)
+small_font = pygame.font.SysFont(None, 18)
 
 
-#----------SETTINGS----------
+# Use settings values wherever needed
+GRID_SIZE = settings.GRID_SIZE
+NUM_AGENTS = settings.NUM_AGENTS
+NUM_FOOD = settings.NUM_FOOD
+FOOD_REGEN_RATE = settings.FOOD_REGEN_RATE
+MIN_LIFESPAN = settings.MIN_LIFESPAN
+MAX_LIFESPAN = settings.MAX_LIFESPAN
+MUTATION_RATE = settings.MUTATION_RATE
+MUTATION_STRENGTH = settings.MUTATION_STRENGTH
+MAX_POPULATION = settings.MAX_POPULATION
+AGENT_RADIUS = settings.AGENT_RADIUS
+PERCEPTION_RADIUS = settings.PERCEPTION_RADIUS
+INITIAL_ENERGY = settings.INITIAL_ENERGY
+MAX_ENERGY = settings.MAX_ENERGY
+SPEED = settings.SPEED
+REPRODUCE = settings.REPRODUCE
+REPRODUCTION_AGE = settings.REPRODUCTION_AGE
+REWARD = settings.REWARD
+PENALTY = settings.PENALTY
+NN = settings.NN
+FOOD = settings.FOOD
+AVOID = settings.AVOID
+PERSONALITY = settings.PERSONALITY
 
-# Grid and Population
-GRID_SIZE = 600
-WIDTH, HEIGHT = GRID_SIZE, GRID_SIZE
-NUM_AGENTS = 20
-NUM_FOOD = 25
-FOOD_REGEN_RATE = 1.8
-
-# Lifespan & Evolution
-MIN_LIFESPAN = 12000
-MAX_LIFESPAN = 18000
-MUTATION_RATE = 0.18
-MUTATION_STRENGTH = 0.06
-MAX_POPULATION = 250
-
-# Physical/Functional
-AGENT_RADIUS = 8
-PERCEPTION_RADIUS = 75
-INITIAL_ENERGY = 50
-MAX_ENERGY = 200
-SPEED = 3.5
-REPRODUCE = 90
-REPRODUCTION_AGE = 10000 # In miliseconds
-
-# Energy dynamics
-REWARD = 5
-PENALTY = -3
-
-# Behavior weights (sum = 1.0)
-NN = 0.5
-FOOD = 0.2
-AVOID = 0.1
-PERSONALITY = 0.2
 
 
 # Pygame setup
