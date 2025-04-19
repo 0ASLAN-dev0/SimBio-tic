@@ -14,6 +14,7 @@ small_font = pygame.font.SysFont(None, 18)
 
 # Use settings values wherever needed
 GRID_SIZE = settings.GRID_SIZE
+WIDTH, HEIGHT = GRID_SIZE, GRID_SIZE
 NUM_AGENTS = settings.NUM_AGENTS
 NUM_FOOD = settings.NUM_FOOD
 FOOD_REGEN_RATE = settings.FOOD_REGEN_RATE
