@@ -73,7 +73,7 @@ Agents are visually color-coded based on their personality:
 
 ## Simulation Settings
 
-You can adjust the following parameters in the source code to change how the simulation behaves:
+You can adjust the following parameters in the [settings.py](settings.py) code to change how the simulation behaves:
 
 | Setting                  | Default       | Description                                       |
 |--------------------------|---------------|---------------------------------------------------|
