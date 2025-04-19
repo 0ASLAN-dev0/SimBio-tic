@@ -28,7 +28,7 @@ REWARD = 5
 PENALTY = -3
 
 # Behavior weights (sum = 1.0)
-NN = 0.5
+NN = 0.4
 FOOD = 0.2
 AVOID = 0.1
-PERSONALITY = 0.2
+PERSONALITY = 0.3
